@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "logistics"
+version = "0.1.0"
+description = "Logistics django backend demo project"
+authors = ["ShadeSWD <seawolfy60@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0"
+psycopg2 = "^2.9.9"
+setuptools = "^69.0.3"
+python-dotenv = "^1.0.0"
+djangorestframework-simplejwt = "^5.3.1"
+drf-yasg = "^1.21.7"
+django-cors-headers = "^4.3.1"
+flake8 = "^7.0.0"
+coverage = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
