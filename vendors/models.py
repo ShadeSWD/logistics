@@ -21,10 +21,20 @@ class Product(models.Model):
 
 
 class Dealer(models.Model):
+    FACTORY = 'fac'
+    RETAIL = 'ret'
+    INDIVIDUAL = 'ind'
+    DEALER_TYPES = (
+        (FACTORY, 'factory'),
+        (RETAIL, 'retail network'),
+        (INDIVIDUAL, 'individual entrepreneur'),
+    )
+
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='owner', **NULLABLE)
     created_at = models.DateTimeField(verbose_name='creation date', auto_now_add=True)
     changed_at = models.DateTimeField(verbose_name='change date', auto_now=True)
     name = models.CharField(verbose_name='name', max_length=100)
+    dealer_type = models.CharField(verbose_name='dealer type', max_length=3, choices=DEALER_TYPES)
     email = models.EmailField(verbose_name='email')
     country = models.CharField(verbose_name='country', max_length=60)
     city = models.CharField(verbose_name='city', max_length=100)
