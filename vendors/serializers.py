@@ -19,3 +19,4 @@ class DealerSerializer(serializers.ModelSerializer):
         model = Dealer
         fields = ['pk', 'name', 'level', 'dealer_type', 'debt', 'email', 'country', 'city', 'street', 'house',
                   'building', 'letter', 'products']
+        read_only_fields = ("debt",)
