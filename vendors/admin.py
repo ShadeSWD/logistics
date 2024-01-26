@@ -8,7 +8,7 @@ def flush_debt(modeladmin, request, queryset):
 
 
 @admin.register(Dealer)
-class ProductAdmin(admin.ModelAdmin):
+class DealerAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'dealer_type', 'level', 'contractor', 'debt', 'country', 'city')
     list_filter = ('city', 'country')
     search_fields = ('name',)
