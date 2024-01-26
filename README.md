@@ -52,7 +52,7 @@ Follow these steps:
 
 To load data from fixtures run:
 ```bash
-    manage.py loadddata fixtures/vendors_data.json
+    manage.py loaddata fixtures/vendors_data.json
 ```
 
 To dump data from fixtures run:
