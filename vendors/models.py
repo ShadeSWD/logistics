@@ -32,7 +32,8 @@ class Dealer(models.Model):
     house = models.IntegerField(verbose_name='house number')
     building = models.IntegerField(verbose_name='building number', **NULLABLE)
     letter = models.CharField(verbose_name='building letter', max_length=5, **NULLABLE)
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product, **NULLABLE)
+    contractor = models.ForeignKey('Dealer', on_delete=models.PROTECT, **NULLABLE)
 
     class Meta:
         verbose_name = 'dealer'
@@ -40,3 +41,14 @@ class Dealer(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    @property
+    def level(self):
+        if not self.contractor:
+            return 0
+        else:
+            for dealer in Dealer.objects.all():
+                if dealer.contractor:
+                    if dealer.contractor.pk == self.pk:
+                        return 1
+        return 2

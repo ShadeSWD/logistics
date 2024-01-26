@@ -4,7 +4,7 @@ from vendors.models import Dealer, Product
 
 @admin.register(Dealer)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name', 'country', 'city')
+    list_display = ('pk', 'name', 'level', 'contractor', 'country', 'city')
     list_filter = ('city', 'country')
     search_fields = ('name',)
 

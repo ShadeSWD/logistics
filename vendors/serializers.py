@@ -10,7 +10,11 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class DealerSerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True, read_only=True)
+    level = serializers.SerializerMethodField
+
+    def get_level(self, obj):
+        return obj.level
 
     class Meta:
         model = Dealer
-        fields = ['name', 'email', 'country', 'city', 'street', 'house', 'building', 'letter', 'products']
+        fields = ['name', 'level', 'email', 'country', 'city', 'street', 'house', 'building', 'letter', 'products']
