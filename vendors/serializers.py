@@ -17,5 +17,5 @@ class DealerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Dealer
-        fields = ['name', 'level', 'dealer_type', 'debt', 'email', 'country', 'city', 'street', 'house',
+        fields = ['pk', 'name', 'level', 'dealer_type', 'debt', 'email', 'country', 'city', 'street', 'house',
                   'building', 'letter', 'products']
