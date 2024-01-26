@@ -42,8 +42,9 @@ class Dealer(models.Model):
     house = models.IntegerField(verbose_name='house number')
     building = models.IntegerField(verbose_name='building number', **NULLABLE)
     letter = models.CharField(verbose_name='building letter', max_length=5, **NULLABLE)
-    products = models.ManyToManyField(Product, **NULLABLE)
-    contractor = models.ForeignKey('Dealer', on_delete=models.PROTECT, **NULLABLE)
+    products = models.ManyToManyField(Product, **NULLABLE, verbose_name='products')
+    contractor = models.ForeignKey('Dealer', on_delete=models.PROTECT, **NULLABLE, verbose_name='contractor')
+    debt = models.DecimalField(verbose_name='debt', max_digits=20, decimal_places=3, default=0)
 
     class Meta:
         verbose_name = 'dealer'
