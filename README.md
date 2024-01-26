@@ -50,6 +50,16 @@ Follow these steps:
    ```
 8. **Create vendor:** Now, when you created a superuser, you can log in and create vendors at <your_host>/users/
 
+To load data from fixtures run:
+```bash
+    manage.py loadddata fixtures/vendors_data.json
+```
+
+To dump data from fixtures run:
+```bash
+    manage.py dumpdata --indent=2 users > fixtures/vendors_data.json
+```
+
 ## Docs:
     
 Docs are available at:
